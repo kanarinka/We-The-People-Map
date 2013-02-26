@@ -1,0 +1,41 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+html, body, #map {
+    height: 100%;
+}
+h1{
+	
+	padding: 10px 20px 20px 50px;
+	background-color: rgba(255,255,30,0.4);
+	z-index: 1;
+	position: absolute;
+	top: -10px;
+}
+h2{
+	text-align: center;
+	width: 100%;
+	position: absolute;
+	top:40%;
+	z-index: 1;
+}
+h4{
+	width:275px;
+}
+#petition-info{
+   position:absolute;
+    bottom:10px;
+    right:10px;
+    z-index: 1;
+    display:hidden;
+}
+.petition-info-values{
+    padding:5px 20px !important;
+}
+#map{
+	text-align: center;
+}
+#svg-map{
+	margin-top:110px;
+}
