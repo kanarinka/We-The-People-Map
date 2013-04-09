@@ -11,7 +11,7 @@ $(document).ready(function() {
     window.mapType = "leaflet";
     $.ajax({
         dataType: "jsonp",
-        url: "https://petitions.whitehouse.gov/api/v1/petitions/"+window.queryString['pid']+".jsonp?key=yGxMBz2CWkjXzcV&callback=getPetitionSuccess",
+        url: "http://api.whitehouse.gov/v1/petitions/"+window.queryString['pid']+".jsonp?key=yGxMBz2CWkjXzcV&callback=getPetitionSuccess",
         jsonp : false,
         cache : true,
     });
