@@ -17,6 +17,10 @@ $(document).ready(function() {
 
     window.mapType = "leaflet";
 
+    if (window.queryString['pid'] == null){
+        window.queryString['pid'] = '515ee941cde5b84708000006';
+    }
+
     $('#map-style-list>li').click(function(e){ 
       window.location.href="index.html?pid="+window.queryString['pid']+"&map="+$(this).attr('id');
       e.preventDefault();
@@ -72,6 +76,7 @@ window.getAllPetitionsSuccess = function(data){
           window.location.href="index.html?pid="+$(this).attr('id')+"&map="+window.queryString['map'];
           e.preventDefault();
         }); 
+
     }
 }
 window.getPetitionSuccess = function(data){    

@@ -6,7 +6,7 @@ html, body, #map {
     height: 100%;
 }
 h1{
-	width:100%;
+	width:96%;
 	padding: 50px 20px 20px 50px;
 	background-color: rgba(255,255,30,0.4);
 	z-index: 1;
