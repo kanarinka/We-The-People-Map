@@ -1,4 +1,10 @@
 We-The-People-Map
 =================
 
-Demo from the White House hackathon. This code queries the We the People API with a particular petition id and then visualizes the signatures on a map. Send it map=d3 and it will create a US States heatmap. Send it map=leaflet and it will visualize all the markers.
+Maps petitions from the We the People petition website out of the White House - https://petitions.whitehouse.gov/. 
+
+This code queries the We the People API with a particular petition id and then visualizes the signatures on either a zoomable or a state-based map.
+
+See it in action here: http://kanarinka.brownbag.me/petitionmap/index.html
+
+Please feel free to download and use! Any questions about usage, drop me a line dignazio@mit.edu.
