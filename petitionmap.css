@@ -6,12 +6,13 @@ html, body, #map {
     height: 100%;
 }
 h1{
-	width:96%;
-	padding: 50px 20px 20px 50px;
+	width:98%;
+	padding: 40px 1% 1% 2%;
 	background-color: rgba(255,255,30,0.4);
 	z-index: 1;
 	position: absolute;
 	top: -10px;
+
 }
 h2{
 	text-align: center;
@@ -38,7 +39,7 @@ h4{
 	margin-top:40px;
 }
 #svg-map{
-	margin-top:130px;
+	margin-top:80px;
 }
 .navbar-inverse .brand{
 	margin-left:35px;
@@ -47,7 +48,7 @@ h4{
     max-height: 500px;
     overflow-y: auto;
 }
-#about-text{
+#about-text, #share-text{
 	display:none;
 }
 .popover{

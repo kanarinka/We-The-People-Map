@@ -5,6 +5,20 @@ $(document).ready(function() {
           html:'true'
         });
     
+    $('.share-url').attr("value", window.location.href);
+    $('.share-embed').text('<div style="width: 789px; height: 510px; padding: 0; overflow: hidden;"><iframe style="width: 1400px; height: 900px; border: 1px solid black; zoom: 0.75;-moz-transform: scale(0.75);-moz-transform-origin: 0 0; -o-transform: scale(0.75); -o-transform-origin: 0 0;-webkit-transform: scale(0.75); -webkit-transform-origin: 0 0;" src="'+window.location.href +'&nav=none"></iframe></div>');
+
+    $('#share').popover({
+          content: $('#share-text').html(), 
+          html:'true'
+        });
+    $('#share').click(function(e){
+        e.preventDefault();
+    });
+    
+
+    
+    
     window.baseURL = 'http://api.whitehouse.gov/v1/petitions';
     window.apiKey = 'yGxMBz2CWkjXzcV';
     window.queryString = $.parseQuerystring();
@@ -20,9 +34,14 @@ $(document).ready(function() {
     if (window.queryString['pid'] == null){
         window.queryString['pid'] = '515ee941cde5b84708000006';
     }
-
+    if (window.queryString['nav'] == "none"){
+      $('.navbar').hide();
+      $('h1').css("padding-top", "5px").css("font-size","25px");
+      
+      
+    }
     $('#map-style-list>li').click(function(e){ 
-      window.location.href="index.html?pid="+window.queryString['pid']+"&map="+$(this).attr('id');
+      window.location.href="index.html?pid="+window.queryString['pid']+"&map="+$(this).attr('id')+"&nav="+window.queryString['nav'];
       e.preventDefault();
     });
     
@@ -57,6 +76,9 @@ $(document).ready(function() {
         d3.xml("Blank_US_Map.svg", "image/svg+xml", function(xml) {
           $(xml.documentElement).attr("id","svg-map");
           $("#map").append(xml.documentElement);
+          if (window.queryString['nav'] == "none"){
+            $('#svg-map').css("margin-top",'30px');
+          }
           
         });
     }
@@ -73,7 +95,7 @@ window.getAllPetitionsSuccess = function(data){
           
         }
         $('#petition-list>li').click(function(e){ 
-          window.location.href="index.html?pid="+$(this).attr('id')+"&map="+window.queryString['map'];
+          window.location.href="index.html?pid="+$(this).attr('id')+"&map="+window.queryString['map']+"&nav="+window.queryString['nav'];
           e.preventDefault();
         }); 
 
