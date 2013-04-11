@@ -1,5 +1,13 @@
 
 $(document).ready(function() {
+    $('#about').popover({
+          content: $('#about-text').html(), 
+          html:'true'
+        });
+    
+
+    window.baseURL = 'http://api.whitehouse.gov/v1/petitions';
+    window.apiKey = 'yGxMBz2CWkjXzcV';
     window.queryString = $.parseQuerystring();
     window.zipsToCounts={};
     window.statesToCounts=[];
@@ -9,9 +17,22 @@ $(document).ready(function() {
     window.nullSignatureCount =0;
 
     window.mapType = "leaflet";
+
+    $('#map-style-list>li').click(function(e){ 
+      window.location.href="index.html?pid="+window.queryString['pid']+"&map="+$(this).attr('id');
+      e.preventDefault();
+    });
+    
     $.ajax({
         dataType: "jsonp",
-        url: "http://api.whitehouse.gov/v1/petitions/"+window.queryString['pid']+".jsonp?key=yGxMBz2CWkjXzcV&callback=getPetitionSuccess",
+        url: baseURL + ".jsonp?key="+apiKey+"&limit=1000&callback=getAllPetitionsSuccess",
+        jsonp : false,
+        cache : true,
+    });
+
+    $.ajax({
+        dataType: "jsonp",
+        url: baseURL + "/"+ window.queryString['pid']+".jsonp?key="+apiKey+"&callback=getPetitionSuccess",
         jsonp : false,
         cache : true,
     });
@@ -39,6 +60,21 @@ $(document).ready(function() {
     self.getSignatures();
     
 });
+
+window.getAllPetitionsSuccess = function(data){    
+    if (data){
+        for (var i=0; i<data.results.length; i++){
+          var petitionTitle = data.results[i].title;
+          var pid = data.results[i].id;
+          $('#petition-list').append('<li id="'+ pid + '""><a href="#">' + petitionTitle + '</a></li>');
+          
+        }
+        $('#petition-list>li').click(function(e){ 
+          window.location.href="index.html?pid="+$(this).attr('id')+"&map="+window.queryString['map'];
+          e.preventDefault();
+        }); 
+    }
+}
 window.getPetitionSuccess = function(data){    
     if (data && data.results.length > 0){
         $('#petition-title').html(data.results[0]["title"]);
@@ -88,7 +124,7 @@ function getSignatures(){
     
     $.ajax({
             dataType: "jsonp",
-            url: "http://api.whitehouse.gov/v1/petitions/" +window.queryString['pid']+ "/signatures.jsonp?key=yGxMBz2CWkjXzcV&callback=JSONPSuccess&offset="+window.offset,
+            url: baseURL + "/"+ window.queryString['pid']+ "/signatures.jsonp?key="+apiKey+"&callback=JSONPSuccess&offset="+window.offset,
             jsonp : false,
             cache : true,
         });

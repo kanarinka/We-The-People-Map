@@ -6,8 +6,8 @@ html, body, #map {
     height: 100%;
 }
 h1{
-	
-	padding: 10px 20px 20px 50px;
+	width:100%;
+	padding: 50px 20px 20px 50px;
 	background-color: rgba(255,255,30,0.4);
 	z-index: 1;
 	position: absolute;
@@ -35,7 +35,21 @@ h4{
 }
 #map{
 	text-align: center;
+	margin-top:40px;
 }
 #svg-map{
-	margin-top:110px;
+	margin-top:130px;
+}
+.navbar-inverse .brand{
+	margin-left:35px;
+}
+.dropdown-menu {
+    max-height: 500px;
+    overflow-y: auto;
+}
+#about-text{
+	display:none;
+}
+.popover{
+	width:300px;
 }

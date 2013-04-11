@@ -26,7 +26,40 @@
         <script src="markerclusterer/leaflet.markercluster-src.js"></script>
     </head>
     <body>
-        
+        <div class="navbar navbar-fixed-top navbar-inverse">
+          <div class="navbar-inner">
+            <a class="brand" href="#">We the People - Petition Mapper</a>
+            <ul class="nav">
+              
+              <li>    
+                <div class="btn-group">
+                  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                    Select Petition
+                    <span class="caret"></span>
+                  </a>
+                  <ul id="petition-list" class="dropdown-menu">
+                    
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-left:30px;margin-right:30px">    
+                <div class="btn-group">
+                  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                    Select Map Style
+                    <span class="caret"></span>
+                  </a>
+                  <ul id="map-style-list" class="dropdown-menu">
+                    <li id="leaflet"><a href="#">Zoomable Map</a></li>
+                    <li id="d3"><a href="#">State Map</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="active pull-right" ><a href="#" id="about" data-title="Petition Map" data-placement="bottom">About</a></li>
+              <div id="about-text">Petition Map is a tool by Catherine D'Ignazio, Research Assistant at the <a href="http://civic.mit.edu">MIT Center for Civic Media</a>. It was created at the first White House Hackathon in February, 2013. Contact <a href='mailto:dignazio@mit.edu'>dignazio@mit.edu</a> with questions about how to use it on your site or <a href="https://github.com/kanarinka/We-The-People-Map">download the code</a> on github.
+              </div>
+            </ul>
+          </div>
+        </div>
         <h1 id="petition-title"></h1>
         <h2 id="loading"><img src="loading.gif"/></h2>
     	<div id="map"></div>
