@@ -88,7 +88,7 @@ function getSignatures(){
     
     $.ajax({
             dataType: "jsonp",
-            url: "https://petitions.whitehouse.gov/api/v1/petitions/" +window.queryString['pid']+ "/signatures.jsonp?key=yGxMBz2CWkjXzcV&callback=JSONPSuccess&offset="+window.offset,
+            url: "http://api.whitehouse.gov/v1/petitions/" +window.queryString['pid']+ "/signatures.jsonp?key=yGxMBz2CWkjXzcV&callback=JSONPSuccess&offset="+window.offset,
             jsonp : false,
             cache : true,
         });
