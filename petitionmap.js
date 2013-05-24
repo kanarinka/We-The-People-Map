@@ -104,8 +104,8 @@ window.getAllPetitionsSuccess = function(data){
 window.getPetitionSuccess = function(data){    
     if (data && data.results.length > 0){
         $('#petition-title').html(data.results[0]["title"]);
-        $('#total-signatures').html(addCommas( data.results[0]["signature count"]));
-        $('#signatures-needed').html(addCommas( data.results[0]["signatures needed"]));
+        $('#total-signatures').html(addCommas( data.results[0]["signatureCount"]));
+        $('#signatures-needed').html(addCommas( data.results[0]["signaturesNeeded"]));
         $('.petition-url').attr("href", data.results[0].url);
       }
 }
